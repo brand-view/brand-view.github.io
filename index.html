@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Brand View | Premium Clothing</title>
+    <title>Brandview | Premium Clothing</title>
     <style>
         * {
             margin: 0;
@@ -26,7 +26,6 @@
             line-height: 1.6;
         }
 
-        /* Navigation */
         nav {
             position: fixed;
             top: 0;
@@ -135,7 +134,6 @@
             color: var(--black);
         }
 
-        /* Collection Section */
         .collection {
             padding: 6rem 5%;
             background: var(--off-white);
@@ -187,7 +185,6 @@
             text-transform: uppercase;
         }
 
-        /* About Page */
         .about-hero {
             margin-top: 80px;
             height: 70vh;
@@ -251,7 +248,6 @@
             margin-bottom: 1rem;
         }
 
-        /* Contact Page */
         .contact-section {
             margin-top: 80px;
             padding: 6rem 5%;
@@ -371,7 +367,6 @@
             background: var(--olive);
         }
 
-        /* Footer */
         footer {
             background: var(--black);
             color: var(--off-white);
@@ -409,7 +404,6 @@
             opacity: 0.7;
         }
 
-        /* Utility */
         .page {
             display: none;
             opacity: 0;
@@ -470,9 +464,8 @@
     </style>
 </head>
 <body>
-    <!-- Navigation -->
     <nav>
-        <div class="logo" id="logoHome">Brand View</div>
+        <div class="logo" id="logoHome">Brandview</div>
         <ul class="nav-links">
             <li><a href="#" data-page="home">Home</a></li>
             <li><a href="#" data-page="about">About</a></li>
@@ -480,7 +473,6 @@
         </ul>
     </nav>
 
-    <!-- Home Page -->
     <div id="home" class="page active">
         <section class="hero">
             <video class="hero-video" muted playsinline>
@@ -489,27 +481,24 @@
             <div class="hero-overlay">
                 <h1 class="hero-title">Timeless Style</h1>
                 <p class="hero-subtitle">Crafted for the Modern Individual</p>
-                <button class="cta-button">Explore Collection</button>
+                <button class="cta-button">Collection Coming Soon</button>
             </div>
         </section>
 
         <section class="collection">
-            <h2 class="section-title fade-in">New Arrivals</h2>
+            <h2 class="section-title fade-in">New Arrivals Coming Soon</h2>
             <div class="collection-grid">
                 <div class="collection-item fade-in">
-                    <!-- Add your image here -->
                     <div class="collection-info">
                         <div class="collection-name">Essential Outerwear</div>
                     </div>
                 </div>
                 <div class="collection-item fade-in">
-                    <!-- Add your image here -->
                     <div class="collection-info">
                         <div class="collection-name">Classic Tailoring</div>
                     </div>
                 </div>
                 <div class="collection-item fade-in">
-                    <!-- Add your image here -->
                     <div class="collection-info">
                         <div class="collection-name">Everyday Essentials</div>
                     </div>
@@ -518,7 +507,6 @@
         </section>
     </div>
 
-    <!-- About Page -->
     <div id="about" class="page">
         <section class="about-hero">
             <h1>Our Story</h1>
@@ -560,7 +548,6 @@
         </section>
     </div>
 
-    <!-- Contact Page -->
     <div id="contact" class="page">
         <section class="contact-section">
             <div class="contact-container">
@@ -613,14 +600,13 @@
         </section>
     </div>
 
-    <!-- Footer -->
     <footer>
         <div class="footer-content">
             <div class="footer-links">
                 <a href="#">Privacy Policy</a>
                 <a href="#">Terms of Service</a>
             </div>
-            <p class="copyright">© 2025 Brand View. All rights reserved.</p>
+            <p class="copyright">© 2025 Brandview. All rights reserved.</p>
         </div>
     </footer>
 
@@ -641,7 +627,7 @@
 
         document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-        // Logo click to home
+        // Click to home
         document.getElementById('logoHome').addEventListener('click', () => {
             document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
             document.getElementById('home').classList.add('active');
@@ -667,7 +653,7 @@
 
                 window.scrollTo({ top: 0, behavior: 'smooth' });
 
-                // Re-observe fade-in elements on new page
+                // Fade-in elements on new page
                 setTimeout(() => {
                     document.querySelectorAll('.fade-in').forEach(el => {
                         el.classList.remove('visible');
