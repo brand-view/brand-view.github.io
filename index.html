@@ -81,7 +81,7 @@
             overflow: hidden;
         }
 
-        .hero-video {
+        .hero-image {
             width: 100%;
             height: 100%;
             object-fit: cover;
@@ -188,7 +188,8 @@
         .about-hero {
             margin-top: 80px;
             height: 70vh;
-            background: var(--slate-blue);
+            position: relative;
+            overflow: hidden;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -197,11 +198,24 @@
             padding: 2rem;
         }
 
+        .about-hero-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 0;
+        }
+
         .about-hero h1 {
+            position: relative;
+            z-index: 1;
             font-size: 3.5rem;
             font-weight: 300;
             letter-spacing: 6px;
             text-transform: uppercase;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
         }
 
         .story-section {
@@ -228,9 +242,17 @@
 
         .story-image {
             width: 100%;
+            height: 100%;
             aspect-ratio: 4/5;
+            overflow: hidden;
             background: var(--olive);
+        }
+
+        .story-image img {
+            width: 100%;
+            height: 100%;
             object-fit: cover;
+            display: block;
         }
 
         .story-text h2 {
@@ -457,6 +479,10 @@
                 font-size: 2rem;
             }
 
+            .about-hero h1 {
+                font-size: 2rem;
+            }
+
             .collection-grid {
                 grid-template-columns: 1fr;
             }
@@ -475,9 +501,7 @@
 
     <div id="home" class="page active">
         <section class="hero">
-            <video class="hero-video" muted playsinline>
-                <source src="losangeles.mp4" type="video/mp4">
-            </video>
+            <img class="hero-image" src="losangeles.jpg" alt="Los Angeles">
             <div class="hero-overlay">
                 <h1 class="hero-title">Timeless Style</h1>
                 <p class="hero-subtitle">Crafted for the Modern Individual</p>
@@ -489,19 +513,10 @@
             <h2 class="section-title fade-in">New Arrivals Coming Soon</h2>
             <div class="collection-grid">
                 <div class="collection-item fade-in">
-                    <!--<div class="collection-info">
-                        <div class="collection-name">Essential Outerwear</div>
-                    </div> -->
                 </div>
                 <div class="collection-item fade-in">
-                    <!-- <div class="collection-info">
-                        <div class="collection-name">Classic Tailoring</div>
-                    </div> -->
                 </div>
                 <div class="collection-item fade-in">
-                    <!-- <div class="collection-info">
-                        <div class="collection-name">Everyday Essentials</div>
-                    </div> -->
                 </div>
             </div>
         </section>
@@ -509,40 +524,41 @@
 
     <div id="about" class="page">
         <section class="about-hero">
+            <img class="about-hero-image" src="about-hero.jpg" alt="Our Story">
             <h1>Our Story</h1>
         </section>
 
         <section class="story-section">
             <div class="story-block fade-in">
                 <div class="story-image">
-                    <img src="yarn.jpg">
+                    <img src="yarn.jpg" alt="Yarn">
                 </div>
                 <div class="story-text">
                     <h2>The Beginning</h2>
-                    <p>Founded on the principle that quality never goes out of style, we set out to create clothing that transcends trends and seasons. Each piece is thoughtfully designed to become a staple in your wardrobe.</p>
-                    <p>Our journey began with a simple belief: great clothing should be timeless, well-made, and accessible to those who value craftsmanship.</p>
+                    <p>Add text</p>
+                    <p>Here</p>
                 </div>
             </div>
 
             <div class="story-block fade-in">
                 <div class="story-image">
-                    <img src="fabric.jpg">
+                    <img src="fabric.jpg" alt="Fabric">
                 </div>
                 <div class="story-text">
                     <h2>Our Craft</h2>
-                    <p>We partner with skilled artisans and manufacturers who share our commitment to excellence. Every garment undergoes rigorous quality control to ensure it meets our exacting standards.</p>
-                    <p>From fabric selection to final stitch, we oversee every step of the process to deliver clothing that's built to last.</p>
+                    <p>Add text</p>
+                    <p>Here</p>
                 </div>
             </div>
 
             <div class="story-block fade-in">
                 <div class="story-image">
-                    <img src="mannequin.jpg">
+                    <img src="mannequin.jpg" alt="Mannequin">
                 </div>
                 <div class="story-text">
                     <h2>Our Promise</h2>
-                    <p>We're committed to sustainable practices and ethical production. Our clothing is designed to be worn season after season, reducing waste and celebrating lasting quality over disposable fashion.</p>
-                    <p>This is more than clothing—it's an investment in pieces that will serve you well for years to come.</p>
+                    <p>Add text</p>
+                    <p>Here</p>
                 </div>
             </div>
         </section>
@@ -557,8 +573,7 @@
                         <div class="contact-detail">
                             <div class="contact-label">Address</div>
                             <div class="contact-value">
-                                <!-- 123 Fashion Street<br> -->
-                                Los Angeles, CA 90001
+                                Los Angeles, CA
                             </div>
                         </div>
                         <div class="contact-detail">
@@ -566,12 +581,6 @@
                             <div class="contact-value">
                                 <a href="mailto:roshanne@brandviewllc.com">roshanne@brandviewllc.com</a>
                             </div>
-                        </div>
-                        <div class="contact-detail">
-                            <!-- <div class="contact-label">Phone</div>
-                            <div class="contact-value">
-                                <a href="tel:+13105551234">(310) 555-1234</a>
-                            </div> -->
                         </div>
                     </div>
                 </div>
