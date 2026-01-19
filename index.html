@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Brand | Premium Clothing</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --black: #1a1a1a;
+            --tan: #d4c5b0;
+            --olive: #6b7360;
+            --slate-blue: #6b7f99;
+            --off-white: #f5f5f0;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            color: var(--black);
+            background: var(--off-white);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(245, 245, 240, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(26, 26, 26, 0.1);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 300;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--black);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 3rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--black);
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--olive);
+        }
+
+        /* Hero Section */
+        .hero {
+            margin-top: 80px;
+            height: 90vh;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(26, 26, 26, 0.3);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: var(--off-white);
+            text-align: center;
+        }
+
+        .hero-title {
+            font-size: 4rem;
+            font-weight: 300;
+            letter-spacing: 8px;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            font-weight: 300;
+            letter-spacing: 3px;
+            margin-bottom: 2rem;
+        }
+
+        .cta-button {
+            padding: 1rem 3rem;
+            background: transparent;
+            border: 2px solid var(--off-white);
+            color: var(--off-white);
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .cta-button:hover {
+            background: var(--off-white);
+            color: var(--black);
+        }
+
+        /* Collection Section */
+        .collection {
+            padding: 6rem 5%;
+            background: var(--off-white);
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 300;
+            letter-spacing: 4px;
+            text-align: center;
+            margin-bottom: 4rem;
+            text-transform: uppercase;
+        }
+
+        .collection-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .collection-item {
+            position: relative;
+            overflow: hidden;
+            aspect-ratio: 3/4;
+            background: var(--tan);
+            cursor: pointer;
+        }
+
+        .collection-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .collection-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .collection-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 2rem;
+            background: linear-gradient(transparent, rgba(26, 26, 26, 0.8));
+            color: var(--off-white);
+        }
+
+        .collection-name {
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        /* About Page */
+        .about-hero {
+            margin-top: 80px;
+            height: 70vh;
+            background: var(--slate-blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--off-white);
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .about-hero h1 {
+            font-size: 3.5rem;
+            font-weight: 300;
+            letter-spacing: 6px;
+            text-transform: uppercase;
+        }
+
+        .story-section {
+            padding: 6rem 10%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .story-block {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 6rem;
+            align-items: center;
+        }
+
+        .story-block:nth-child(even) {
+            direction: rtl;
+        }
+
+        .story-block:nth-child(even) > * {
+            direction: ltr;
+        }
+
+        .story-image {
+            width: 100%;
+            aspect-ratio: 4/5;
+            background: var(--olive);
+            object-fit: cover;
+        }
+
+        .story-text h2 {
+            font-size: 2rem;
+            font-weight: 300;
+            letter-spacing: 3px;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+        }
+
+        .story-text p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #4a4a4a;
+            margin-bottom: 1rem;
+        }
+
+        /* Contact Page */
+        .contact-section {
+            margin-top: 80px;
+            padding: 6rem 5%;
+            min-height: calc(100vh - 80px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .contact-container {
+            max-width: 800px;
+            width: 100%;
+        }
+
+        .contact-title {
+            font-size: 3rem;
+            font-weight: 300;
+            letter-spacing: 5px;
+            text-align: center;
+            margin-bottom: 3rem;
+            text-transform: uppercase;
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+            color: var(--black);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            padding: 1rem;
+            border: 1px solid var(--tan);
+            background: white;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--olive);
+        }
+
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .submit-button {
+            padding: 1.2rem;
+            background: var(--black);
+            color: var(--off-white);
+            border: none;
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .submit-button:hover {
+            background: var(--olive);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--black);
+            color: var(--off-white);
+            padding: 3rem 5%;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-links a {
+            color: var(--off-white);
+            text-decoration: none;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--tan);
+        }
+
+        .copyright {
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            opacity: 0.7;
+        }
+
+        /* Utility */
+        .page {
+            display: none;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .nav-links {
+                gap: 1.5rem;
+            }
+
+            .story-block {
+                grid-template-columns: 1fr;
+            }
+
+            .story-block:nth-child(even) {
+                direction: ltr;
+            }
+
+            .about-hero h1 {
+                font-size: 2rem;
+            }
+
+            .collection-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">Your Brand</div>
+        <ul class="nav-links">
+            <li><a href="#" data-page="home">Home</a></li>
+            <li><a href="#" data-page="about">About</a></li>
+            <li><a href="#" data-page="contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Home Page -->
+    <div id="home" class="page active">
+        <section class="hero">
+            <video class="hero-video" autoplay muted loop playsinline>
+                <source src="your-video.mp4" type="video/mp4">
+                <!-- Replace with your video file -->
+            </video>
+            <div class="hero-overlay">
+                <h1 class="hero-title">Timeless Style</h1>
+                <p class="hero-subtitle">Crafted for the Modern Individual</p>
+                <button class="cta-button">Explore Collection</button>
+            </div>
+        </section>
+
+        <section class="collection">
+            <h2 class="section-title">New Arrivals</h2>
+            <div class="collection-grid">
+                <div class="collection-item">
+                    <!-- Add your image here -->
+                    <div class="collection-info">
+                        <div class="collection-name">Essential Outerwear</div>
+                    </div>
+                </div>
+                <div class="collection-item">
+                    <!-- Add your image here -->
+                    <div class="collection-info">
+                        <div class="collection-name">Classic Tailoring</div>
+                    </div>
+                </div>
+                <div class="collection-item">
+                    <!-- Add your image here -->
+                    <div class="collection-info">
+                        <div class="collection-name">Everyday Essentials</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- About Page -->
+    <div id="about" class="page">
+        <section class="about-hero">
+            <h1>Our Story</h1>
+        </section>
+
+        <section class="story-section">
+            <div class="story-block">
+                <div class="story-image">
+                    <!-- Add your image here -->
+                </div>
+                <div class="story-text">
+                    <h2>The Beginning</h2>
+                    <p>Founded on the principle that quality never goes out of style, we set out to create clothing that transcends trends and seasons. Each piece is thoughtfully designed to become a staple in your wardrobe.</p>
+                    <p>Our journey began with a simple belief: great clothing should be timeless, well-made, and accessible to those who value craftsmanship.</p>
+                </div>
+            </div>
+
+            <div class="story-block">
+                <div class="story-image">
+                    <!-- Add your image here -->
+                </div>
+                <div class="story-text">
+                    <h2>Our Craft</h2>
+                    <p>We partner with skilled artisans and manufacturers who share our commitment to excellence. Every garment undergoes rigorous quality control to ensure it meets our exacting standards.</p>
+                    <p>From fabric selection to final stitch, we oversee every step of the process to deliver clothing that's built to last.</p>
+                </div>
+            </div>
+
+            <div class="story-block">
+                <div class="story-image">
+                    <!-- Add your image here -->
+                </div>
+                <div class="story-text">
+                    <h2>Our Promise</h2>
+                    <p>We're committed to sustainable practices and ethical production. Our clothing is designed to be worn season after season, reducing waste and celebrating lasting quality over disposable fashion.</p>
+                    <p>This is more than clothing—it's an investment in pieces that will serve you well for years to come.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Contact Page -->
+    <div id="contact" class="page">
+        <section class="contact-section">
+            <div class="contact-container">
+                <h1 class="contact-title">Get In Touch</h1>
+                <form class="contact-form">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" name="subject" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-button">Send Message</button>
+                </form>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="#">Instagram</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+            </div>
+            <p class="copyright">© 2025 Your Brand. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Page navigation
+        const navLinks = document.querySelectorAll('.nav-links a');
+        const pages = document.querySelectorAll('.page');
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetPage = link.getAttribute('data-page');
+
+                pages.forEach(page => page.classList.remove('active'));
+                document.getElementById(targetPage).classList.add('active');
+
+                navLinks.forEach(l => l.style.color = '');
+                link.style.color = 'var(--olive)';
+
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        });
+
+        // Form submission
+        document.querySelector('.contact-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Thank you for your message. We will get back to you soon!');
+            e.target.reset();
+        });
+
+        // Smooth scroll for CTA button
+        document.querySelector('.cta-button').addEventListener('click', () => {
+            document.querySelector('.collection').scrollIntoView({ behavior: 'smooth' });
+        });
+    </script>
+</body>
+</html>
