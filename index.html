@@ -137,62 +137,7 @@
             color: var(--black);
         }
 
-        /* Info Sections */
-        .info-section {
-            padding: 6rem 5%;
-            background: var(--off-white);
-        }
 
-        .info-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 0;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .info-card {
-            padding: 4rem 3rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: flex-start;
-            min-height: 400px;
-        }
-
-        .info-card:nth-child(1) {
-            background: var(--black);
-            color: var(--off-white);
-        }
-
-        .info-card:nth-child(2) {
-            background: var(--tan);
-            color: var(--black);
-        }
-
-        .info-card:nth-child(3) {
-            background: var(--slate-blue);
-            color: var(--off-white);
-        }
-
-        .info-card:nth-child(4) {
-            background: var(--olive);
-            color: var(--off-white);
-        }
-
-        .info-card h2 {
-            font-size: 2rem;
-            font-weight: 300;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            margin-bottom: 1.5rem;
-        }
-
-        .info-card p {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            font-weight: 300;
-        }
 
         .about-hero {
             margin-top: 80px;
@@ -215,13 +160,17 @@
             height: 100%;
             object-fit: cover;
             z-index: 0;
+            filter: brightness(0.4);
         }
 
         .about-hero-content {
             position: relative;
             z-index: 1;
             max-width: 900px;
-            padding: 2rem;
+            padding: 3rem;
+            background: rgba(26, 26, 26, 0.6);
+            backdrop-filter: blur(5px);
+            border-radius: 4px;
         }
 
         .about-hero h1 {
@@ -514,15 +463,6 @@
                 font-size: 1rem;
             }
 
-            .info-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .info-card {
-                min-height: 300px;
-                padding: 3rem 2rem;
-            }
-
             .collection-grid {
                 grid-template-columns: 1fr;
             }
@@ -549,12 +489,7 @@
             </div>
         </section>
 
-        <section class="info-section">
-                <div class="info-card fade-in">
-                    <h2>Team</h2>
-                    <p>We always look to identify trends and explore new concepts. Passionate about what we do, our team collaborates with our partners to improve processes and focus on areas of growth.</p>
-                </div>
-        </section>
+
     </div>
 
     <div id="about" class="page">
@@ -753,10 +688,13 @@
             }
         });
 
-        // Smooth scroll for CTA button
-        document.querySelector('.cta-button').addEventListener('click', () => {
-            document.querySelector('.info-section').scrollIntoView({ behavior: 'smooth' });
-        });
+        // Smooth scroll for CTA button (if needed in future)
+        const ctaButton = document.querySelector('.cta-button');
+        if (ctaButton) {
+            ctaButton.addEventListener('click', () => {
+                window.scrollBy({ top: window.innerHeight * 0.8, behavior: 'smooth' });
+            });
+        }
     </script>
 </body>
 </html>
