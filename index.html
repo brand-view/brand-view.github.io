@@ -600,7 +600,6 @@
     </footer>
 
     <script>
-        // Scroll animations
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
@@ -616,7 +615,6 @@
 
         document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-        // Click to home
         document.getElementById('logoHome').addEventListener('click', () => {
             document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
             document.getElementById('home').classList.add('active');
@@ -625,7 +623,6 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
 
-        // Page navigation
         const navLinks = document.querySelectorAll('.nav-links a');
         const pages = document.querySelectorAll('.page');
 
@@ -642,7 +639,6 @@
 
                 window.scrollTo({ top: 0, behavior: 'smooth' });
 
-                // Fade-in elements on new page
                 setTimeout(() => {
                     document.querySelectorAll('.fade-in').forEach(el => {
                         el.classList.remove('visible');
@@ -652,7 +648,6 @@
             });
         });
 
-        // Form submission with FormSubmit.co
         document.getElementById('contactForm').addEventListener('submit', async (e) => {
             e.preventDefault();
             
@@ -661,7 +656,6 @@
             const submitButton = form.querySelector('.submit-button');
             const originalText = submitButton.textContent;
             
-            // Disable button and show loading state
             submitButton.disabled = true;
             submitButton.textContent = 'Sending...';
             
@@ -688,7 +682,6 @@
             }
         });
 
-        // Smooth scroll for CTA button (if needed in future)
         const ctaButton = document.querySelector('.cta-button');
         if (ctaButton) {
             ctaButton.addEventListener('click', () => {
